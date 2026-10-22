@@ -30,7 +30,7 @@ It replaces the `geopoint` input and adds a `geopointRadius` type. Existing cont
 npm install sanity-plugin-maplibre
 ```
 
-It needs Sanity Studio v5 or v6 (React 19.2).
+It works with Sanity Studio v5 and v6 (React 19.2), with nothing extra to set up on either.
 
 ## Usage
 
@@ -456,6 +456,8 @@ If your Studio sets a Content Security Policy, allow those hosts in `connect-src
 **"Map preview unavailable".** A preview couldn't render; the console says why. Usually the style failed to load or the browser has WebGL turned off.
 
 **"This field's map options are invalid".** The field's `options.maplibre` is wrong, for example a style name the plugin doesn't define. The message says what to fix.
+
+**Console warnings about `highway-shield` or `road_shield` filters.** They come from OpenFreeMap's Liberty style, which MapLibre 6 checks more strictly than earlier versions. The map isn't affected.
 
 **A PMTiles map is blank.** Check that `setupMaplibre` registers the protocol, and that the host answers range requests with CORS headers.
 

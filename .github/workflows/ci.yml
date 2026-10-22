@@ -39,6 +39,9 @@ jobs:
       - run: pnpm build
       - name: Packed tarball installs and type-checks in a consumer project
         run: pnpm smoke
+      - name: Studios on Sanity 5 and 6 build with the plugin's styles
+        if: matrix.node == 24
+        run: pnpm check:studios
       - name: Test Studio builds against the source
         if: matrix.node == 24
         run: pnpm --filter sanity-plugin-maplibre-dev build
