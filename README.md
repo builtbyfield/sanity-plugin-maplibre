@@ -1,6 +1,6 @@
 # sanity-plugin-maplibre
 
-[![npm](https://img.shields.io/npm/v/sanity-plugin-maplibre)](https://www.npmjs.com/package/sanity-plugin-maplibre) [![CI](https://github.com/builtbyfield/sanity-plugin-maplibre/actions/workflows/ci.yml/badge.svg)](https://github.com/builtbyfield/sanity-plugin-maplibre/actions/workflows/ci.yml) [![coverage](https://codecov.io/gh/builtbyfield/sanity-plugin-maplibre/graph/badge.svg)](https://codecov.io/gh/builtbyfield/sanity-plugin-maplibre) [![license](https://img.shields.io/npm/l/sanity-plugin-maplibre)](LICENSE)
+[![npm](https://img.shields.io/npm/v/sanity-plugin-maplibre)](https://www.npmjs.com/package/sanity-plugin-maplibre) [![CI](https://github.com/builtbyfield/sanity-plugin-maplibre/actions/workflows/ci.yml/badge.svg)](https://github.com/builtbyfield/sanity-plugin-maplibre/actions/workflows/ci.yml) [![coverage](https://codecov.io/gh/builtbyfield/sanity-plugin-maplibre/graph/badge.svg)](https://codecov.io/gh/builtbyfield/sanity-plugin-maplibre) [![license](https://img.shields.io/npm/l/sanity-plugin-maplibre)](https://github.com/builtbyfield/sanity-plugin-maplibre/blob/main/LICENSE)
 
 Map inputs for [Sanity Studio](https://www.sanity.io) that need no API key. It's a drop-in replacement for [`@sanity/google-maps-input`](https://www.npmjs.com/package/@sanity/google-maps-input) built on open-source maps instead of Google:
 
@@ -10,7 +10,7 @@ Map inputs for [Sanity Studio](https://www.sanity.io) that need no API key. It's
 
 It replaces the `geopoint` input and adds a `geopointRadius` type. Existing content works as it is ([Migrating](#migrating-from-sanitygoogle-maps-input)).
 
-![A Sanity Studio document with a map preview of the Calgary Zoo in its Location field, and the Review changes panel showing before and after maps](docs/showcase/hero.png)
+![A Sanity Studio document with a map preview of the Calgary Zoo in its Location field, and the Review changes panel showing before and after maps](https://raw.githubusercontent.com/builtbyfield/sanity-plugin-maplibre/main/docs/showcase/hero.png)
 
 ## Contents
 
@@ -53,7 +53,7 @@ defineField({ name: "location", title: "Location", type: "geopoint" })
 
 The field shows a map of the point, with **Edit** and **Remove**. **Edit** (or double-clicking the map) opens a larger map where editors click to place the point, drag the marker or search for an address. An empty field can also be set without a mouse: pan the map with the arrow keys, then choose **Place marker at map center**.
 
-![A geopoint field with a map preview of downtown Calgary, and in front of it the edit dialog with the search box listing Calgary Tower and other results](docs/showcase/field-and-search.png)
+![A geopoint field with a map preview of downtown Calgary, and in front of it the edit dialog with the search box listing Calgary Tower and other results](https://raw.githubusercontent.com/builtbyfield/sanity-plugin-maplibre/main/docs/showcase/field-and-search.png)
 
 The plugin also registers `geopointRadius`, a point with a radius stored in meters. Editors drag the circle's edge on the map or type the number:
 
@@ -65,7 +65,7 @@ defineField({ name: "serviceArea", title: "Service area", type: "geopointRadius"
 { "_type": "geopointRadius", "lat": 51.0443, "lng": -114.0631, "radius": 1500 }
 ```
 
-![A geopointRadius field with a 1000 meter circle around Calgary Tower, and in front of it the edit dialog with the circle and a handle on its edge for dragging the radius](docs/showcase/radius-and-dialog.png)
+![A geopointRadius field with a 1000 meter circle around Calgary Tower, and in front of it the edit dialog with the circle and a handle on its edge for dragging the radius](https://raw.githubusercontent.com/builtbyfield/sanity-plugin-maplibre/main/docs/showcase/radius-and-dialog.png)
 
 ### In arrays
 
@@ -81,7 +81,7 @@ import { GeopointDiff } from "sanity-plugin-maplibre"
 defineField({ name: "location", type: "geopoint", components: { diff: GeopointDiff } })
 ```
 
-<img src="docs/showcase/review-changes.png" width="400" alt="The Review changes panel: the title changed from Calgary Tower to Calgary Zoo, and the location shows a map before and after the change">
+<img src="https://raw.githubusercontent.com/builtbyfield/sanity-plugin-maplibre/main/docs/showcase/review-changes.png" width="400" alt="The Review changes panel: the title changed from Calgary Tower to Calgary Zoo, and the location shows a map before and after the change">
 
 ## Configuration
 
@@ -482,7 +482,7 @@ pnpm check      # lint, typecheck, unit tests, build, smoke test
 
 `pnpm dev` opens a Studio with three workspaces: a style switcher with Photon, Nominatim with `saveZoom` and miles, and PMTiles. It uses Built by Field's dev project; to point it at your own, copy `dev/.env.example` to `dev/.env` and set your project ID and dataset. For quick checks without logging in, `pnpm --filter sanity-plugin-maplibre-dev harness` serves the map components on their own at http://localhost:3334.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the code layout, the tests and how releases work.
+See [CONTRIBUTING.md](https://github.com/builtbyfield/sanity-plugin-maplibre/blob/main/CONTRIBUTING.md) for the code layout, the tests and how releases work.
 
 ## Credits
 
