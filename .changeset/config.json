@@ -1,0 +1,19 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@4.0.1/schema.json",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "builtbyfield/sanity-plugin-maplibre"
+    }
+  ],
+  "commit": false,
+  "access": "public",
+  "baseBranch": "main",
+  "ignore": [
+    "sanity-plugin-maplibre-dev"
+  ],
+  "privatePackages": {
+    "version": false,
+    "tag": false
+  }
+}

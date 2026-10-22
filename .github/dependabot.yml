@@ -1,0 +1,13 @@
+# Keeps the SHA-pinned actions current. Security updates for npm dependencies
+# are on in the repo settings, so they don't need an entry here.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: ci

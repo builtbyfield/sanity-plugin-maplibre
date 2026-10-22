@@ -1,0 +1,23 @@
+{
+  "version": 8,
+  "name": "Light",
+  "sources": {
+    "plain": {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": []
+      },
+      "attribution": "Test style"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#f2efe9"
+      }
+    }
+  ]
+}

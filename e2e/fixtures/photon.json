@@ -1,0 +1,15 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "osm_type": "W", "osm_id": 25719793, "name": "Calgary Tower", "street": "9 Avenue SE", "housenumber": "101", "city": "Calgary", "country": "Canada", "countrycode": "CA" },
+      "geometry": { "type": "Point", "coordinates": [-114.0631, 51.0443] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "osm_type": "R", "osm_id": 1, "name": "Calgary Zoo", "city": "Calgary", "country": "Canada", "countrycode": "CA" },
+      "geometry": { "type": "Point", "coordinates": [-114.0232, 51.0454] }
+    }
+  ]
+}

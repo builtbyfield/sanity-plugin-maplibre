@@ -1,0 +1,107 @@
+{
+  "name": "sanity-plugin-maplibre",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.34.7",
+  "description": "Keyless, open-source map inputs for Sanity Studio, built on MapLibre, OpenFreeMap and OpenStreetMap geocoding. A drop-in replacement for @sanity/google-maps-input.",
+  "author": {
+    "name": "Built by Field",
+    "email": "jesse@builtbyfield.com",
+    "url": "https://www.builtbyfield.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/builtbyfield/sanity-plugin-maplibre#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/builtbyfield/sanity-plugin-maplibre.git"
+  },
+  "bugs": {
+    "url": "https://github.com/builtbyfield/sanity-plugin-maplibre/issues"
+  },
+  "keywords": [
+    "sanity",
+    "sanity-plugin",
+    "sanity-studio",
+    "geopoint",
+    "maplibre",
+    "maplibre-gl",
+    "openfreemap",
+    "openstreetmap",
+    "photon",
+    "nominatim",
+    "geocoding",
+    "maps"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "pnpm --filter sanity-plugin-maplibre-dev dev",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm lint && pnpm typecheck && pnpm test:run && pnpm build && pnpm smoke",
+    "smoke": "node scripts/smoke.mjs",
+    "prepublishOnly": "pnpm check",
+    "changeset": "changeset",
+    "release": "changeset publish",
+    "e2e": "playwright test -c e2e/playwright.config.ts"
+  },
+  "peerDependencies": {
+    "react": "^19.2",
+    "react-dom": "^19.2",
+    "sanity": "^5 || ^6.0.0-0"
+  },
+  "dependencies": {
+    "@sanity/icons": "^5.2.3",
+    "@sanity/ui": "^4.4.10",
+    "maplibre-gl": "^6.15.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^9.5.1",
+    "@arethetypeswrong/core": "^0.18.5",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "@eslint-react/eslint-plugin": "^5.28.6",
+    "@playwright/test": "^1.64.1",
+    "@sanity/tsdown-config": "^0.31.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^24.19.2",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "@vitest/coverage-v8": "^5.0.5",
+    "eslint": "^10.13.0",
+    "eslint-plugin-format": "^2.0.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "happy-dom": "^21.0.4",
+    "pngjs": "^7.0.0",
+    "publint": "^0.3.25",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sanity": "^6.20.0",
+    "styled-components": "^6.6.0",
+    "tsdown": "^0.23.1",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "vitest": "^5.0.5"
+  }
+}

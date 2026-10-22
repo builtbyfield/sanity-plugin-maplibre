@@ -1,0 +1,24 @@
+{
+  "name": "sanity-plugin-maplibre-dev",
+  "type": "module",
+  "private": true,
+  "description": "Test Studio for sanity-plugin-maplibre. Run `pnpm dev` from the repo root.",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build -y",
+    "harness": "vite --config harness/vite.config.ts"
+  },
+  "dependencies": {
+    "@protomaps/basemaps": "^5.7.2",
+    "pmtiles": "^4.5.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sanity": "^6.20.0",
+    "styled-components": "^6.6.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "maplibre-gl": "^6.15.0",
+    "vite": "^8.3.5"
+  }
+}

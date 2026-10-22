@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+*.tgz
+*.log
+.DS_Store
+.eslintcache
+.env
+.env.local
+.sanity/
+
+.claude/settings.local.json
+.playwright-mcp/
+test-results/
+playwright-report/

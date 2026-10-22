@@ -1,0 +1,35 @@
+{
+  "version": 8,
+  "name": "Tile errors",
+  "sources": {
+    "plain": {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": []
+      },
+      "attribution": "Test style"
+    },
+    "missing": {
+      "type": "raster",
+      "tiles": [
+        "/missing-tiles/{z}/{x}/{y}.png"
+      ],
+      "tileSize": 256
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#f2efe9"
+      }
+    },
+    {
+      "id": "missing",
+      "type": "raster",
+      "source": "missing"
+    }
+  ]
+}
