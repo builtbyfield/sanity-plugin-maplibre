@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <title>sanity-plugin-maplibre</title>
+  <!-- The radius circle and pin the plugin draws, in the same colors. -->
+  <circle cx="150" cy="165" r="100" fill="#2276fc" fill-opacity="0.18" stroke="#2276fc" stroke-width="8"/>
+  <path d="M150 165 L110.97 116.25 A50 50 0 1 1 189.03 116.25 Z" fill="#e5484d" stroke="#e5484d" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="150" cy="85" r="18" fill="#fff"/>
+</svg>
