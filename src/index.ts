@@ -1,3 +1,7 @@
+// @sanity/ui v4's components need its utility classes. Sanity 6 loads them, Sanity 5 (which
+// ships v3) doesn't. In Node this resolves to an empty module.
+import "@sanity/ui/styles.css"
+
 export { GeopointDiff } from "./diff/geopoint-diff"
 export { nominatim, type NominatimOptions } from "./geocoder/nominatim"
 export { photon, type PhotonOptions } from "./geocoder/photon"

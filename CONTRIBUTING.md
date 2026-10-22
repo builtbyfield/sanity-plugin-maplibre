@@ -9,6 +9,7 @@ pnpm --filter sanity-plugin-maplibre-dev harness   # the map components alone, n
 pnpm test          # unit tests, watch mode
 pnpm check         # lint, typecheck, unit tests, build, smoke test
 pnpm e2e           # browser tests against the harness
+pnpm check:studios # builds a Studio on Sanity 5 and on Sanity 6 with the packed plugin
 ```
 
 Add a changeset (`pnpm changeset`) to any PR that changes behavior. See [Releasing](#releasing).
@@ -17,7 +18,7 @@ Add a changeset (`pnpm changeset`) to any PR that changes behavior. See [Releasi
 
 File names are kebab-case, components included; ESLint enforces it.
 
-- `src/plugin.tsx`: `maplibreInput`. Routes `geopoint` and `geopointRadius` fields to the inputs and provides the options to diffs through `activeToolLayout`, since diffs render outside the form.
+- `src/plugin.tsx`: `maplibreInput`. Routes `geopoint` and `geopointRadius` fields to the inputs and provides the options through the Studio `layout` component, since diffs and previews render outside the form.
 - `src/config.ts`: defaults and validation (`resolveConfig`). Options are checked when the Studio loads.
 - `src/schema.ts`: the `geopointRadius` type. Its fields must stay compatible with `@sanity/google-maps-input`'s.
 - `src/geocoder/`: the adapter interface (`types.ts`), `photon.ts`, `nominatim.ts` and the shared rate limiter in `util.ts`. Adapters know nothing about React or MapLibre.
@@ -35,6 +36,7 @@ File names are kebab-case, components included; ESLint enforces it.
 - **Respect the public services.** Nothing may send as-you-type requests to the public Nominatim instance, or more than one a second. Keep the debounce, abort and cache behavior for Photon. Don't add default requests to other third-party hosts.
 - **Attribution always shows**, on the interactive map and on every preview.
 - **Never import `maplibre-gl` at runtime outside `src/map/maplibre.ts`.** Type imports are fine. The smoke test checks that the entry imports in plain Node.
+- **Keep `import "@sanity/ui/styles.css"` at the top of `src/index.ts`.** The plugin uses `@sanity/ui` v4, whose components need that stylesheet. Sanity 6 loads it, but Sanity 5 ships v3 and doesn't. `pnpm check:studios`, which CI runs, fails without it.
 
 ## Tests
 

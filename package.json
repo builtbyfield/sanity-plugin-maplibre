@@ -58,6 +58,7 @@
     "typecheck": "tsc --noEmit",
     "check": "pnpm lint && pnpm typecheck && pnpm test:run && pnpm build && pnpm smoke",
     "smoke": "node scripts/smoke.mjs",
+    "check:studios": "node scripts/studio-build.mjs 5 && node scripts/studio-build.mjs 6",
     "prepublishOnly": "pnpm check",
     "changeset": "changeset",
     "release": "changeset publish",
