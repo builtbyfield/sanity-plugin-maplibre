@@ -83,7 +83,8 @@ describe("staticPreview", () => {
     expect(image.getAttribute("src")).toBe("blob:1")
     expect(image.getAttribute("alt")).toBe("Map of 51.000000, -114.000000")
     expect(screen.getByRole("link", { name: "© OpenStreetMap" })).toBeTruthy()
-    expect(renderer.retained).toEqual(["blob:1"])
+    // Retained in an effect after the image renders; on a slow machine that's a moment later.
+    await waitFor(() => expect(renderer.retained).toEqual(["blob:1"]))
   })
 
   it("describes a radius in the alt text in the configured unit", async () => {

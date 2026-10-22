@@ -125,6 +125,18 @@ test.describe("styles", () => {
     await expect(page.getByText("The map couldn’t load")).toBeHidden()
   })
 
+  test("when the default style fails, editors can switch to another", async ({ page }) => {
+    await openHarness(page, "default=broken")
+    await expect(page.getByText("The map couldn’t load")).toBeVisible()
+    await pickStyle(page, "Light")
+    await expect(page.getByText("The map couldn’t load")).toBeHidden()
+    await expect.poll(() => backgroundPixel(page).then(pixel => near(pixel, LIGHT))).toBe(true)
+    // The map works once a style has loaded: a click places the point.
+    const box = (await page.locator(".maplibregl-canvas").boundingBox())!
+    await page.mouse.click(box.x + box.width * 0.25, box.y + box.height * 0.5)
+    await expect.poll(async () => (await readValue(page)).point!.lng).toBeLessThan(-114.0719)
+  })
+
   test("missing tiles don't break the map", async ({ page }) => {
     await openHarness(page)
     await pickStyle(page, "Tile errors")

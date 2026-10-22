@@ -11,7 +11,7 @@ export interface HarnessValue {
 /** Opens the harness with offline styles and waits for the map to load. */
 export async function openHarness(page: Page, query = ""): Promise<Locator> {
   await page.goto(`/?styles=local&previews=0&${query}`)
-  // The style menu appears once the map has loaded.
+  // The style menu appears once the map has loaded (or its first style has failed).
   await expect(page.getByRole("button", { name: /^Map style/ })).toBeVisible()
   return page.locator(".maplibregl-canvas")
 }

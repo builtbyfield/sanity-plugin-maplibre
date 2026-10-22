@@ -18,6 +18,7 @@ import { styleFor } from "../../src/styles"
 //   center=lat,lng   zoom=n   empty=1 (no point)   radius=1 (a geopointRadius)
 //   readonly=1       nested=1 (inside a tiny popover boundary, like an array item dialog)
 //   scheme=dark      geocoder=nominatim|none      previews=0
+//   default=<style name>   the style the map starts with, such as default=broken
 const params = new URLSearchParams(location.search)
 const [lat = 51.0447, lng = -114.0719] = (params.get("center") ?? "").split(",").filter(Boolean).map(Number)
 const center: LatLng = { lat, lng }
@@ -40,6 +41,7 @@ const config = resolveConfig({
   defaultLocation: center,
   geocoder: params.get("geocoder") === "nominatim" ? nominatim() : params.get("geocoder") === "none" ? false : "photon",
   styles: params.get("styles") === "local" ? localStyles : openFreeMapStyles,
+  defaultStyle: params.get("default") ?? undefined,
   workerUrl,
 })
 const previewStyle = styleFor(config.styles, config.styles.defaultStyle, scheme)

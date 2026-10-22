@@ -40,6 +40,8 @@ export function InteractiveMap({ styles, initialCenter, initialZoom, marker, rad
   const config = useResolvedConfig()
   const containerRef = useRef<HTMLDivElement>(null)
   const [map, setMap] = useState<MaplibreMap | null>(null)
+  // Set once the map is created, before any style loads, so a failed first style can be switched away from.
+  const [created, setCreated] = useState<MaplibreMap | null>(null)
   const [error, setError] = useState<string | null>(null)
   const libRef = useRef<MaplibreModule | null>(null)
   // Popovers (the style menu, search results) measure against this element. Without it
@@ -98,6 +100,7 @@ export function InteractiveMap({ styles, initialCenter, initialZoom, marker, rad
       instance.keyboard.disableRotation()
       instance.addControl(new maplibre.NavigationControl({ showCompass: false }), "bottom-right")
       const loaded = instance
+      setCreated(loaded)
       // Fires for the first style and after every switch, which removes added layers.
       loaded.on("style.load", () => {
         styleLoadedRef.current = true
@@ -121,17 +124,18 @@ export function InteractiveMap({ styles, initialCenter, initialZoom, marker, rad
       disposed = true
       instance?.remove()
       setMap(null)
+      setCreated(null)
     }
   }, [config.workerUrl, config.setupMaplibre])
 
   useEffect(() => {
-    if (!map || appliedStyleRef.current.key === activeKey)
+    if (!created || appliedStyleRef.current.key === activeKey)
       return
     appliedStyleRef.current = { style: activeStyle, key: activeKey }
     styleLoadedRef.current = false
     // A full replace: `style.load` fires, and its handler re-adds the overlay.
-    map.setStyle(activeStyle, { diff: false })
-  }, [map, activeStyle, activeKey])
+    created.setStyle(activeStyle, { diff: false })
+  }, [created, activeStyle, activeKey])
 
   useEffect(() => {
     if (!map || !editable)
@@ -315,7 +319,7 @@ export function InteractiveMap({ styles, initialCenter, initialZoom, marker, rad
             </Card>
           </Box>
         )}
-        {map && styles.styles.length > 1 && (
+        {(map || (created && error)) && styles.styles.length > 1 && (
           <Box style={{ position: "absolute", top: 10, right: 10, zIndex: 2 }}>
             <StyleSwitcher styles={styles.styles} value={styleName} onChange={handleStyleChange} />
           </Box>

@@ -1,6 +1,6 @@
 # sanity-plugin-maplibre
 
-[![npm](https://img.shields.io/npm/v/sanity-plugin-maplibre)](https://www.npmjs.com/package/sanity-plugin-maplibre) [![CI](https://github.com/builtbyfield/sanity-plugin-maplibre/actions/workflows/ci.yml/badge.svg)](https://github.com/builtbyfield/sanity-plugin-maplibre/actions/workflows/ci.yml) [![license](https://img.shields.io/npm/l/sanity-plugin-maplibre)](LICENSE)
+[![npm](https://img.shields.io/npm/v/sanity-plugin-maplibre)](https://www.npmjs.com/package/sanity-plugin-maplibre) [![CI](https://github.com/builtbyfield/sanity-plugin-maplibre/actions/workflows/ci.yml/badge.svg)](https://github.com/builtbyfield/sanity-plugin-maplibre/actions/workflows/ci.yml) [![coverage](https://codecov.io/gh/builtbyfield/sanity-plugin-maplibre/graph/badge.svg)](https://codecov.io/gh/builtbyfield/sanity-plugin-maplibre) [![license](https://img.shields.io/npm/l/sanity-plugin-maplibre)](LICENSE)
 
 Map inputs for [Sanity Studio](https://www.sanity.io) that need no API key. It's a drop-in replacement for [`@sanity/google-maps-input`](https://www.npmjs.com/package/@sanity/google-maps-input) built on open-source maps instead of Google:
 
@@ -451,7 +451,7 @@ If your Studio sets a Content Security Policy, allow those hosts in `connect-src
 
 **The map stays grey, or the console mentions MapLibre's worker.** The worker didn't load. Check that `cdn.jsdelivr.net` is reachable and allowed by your CSP (`worker-src blob:`), or [self-host the worker](#network-and-csp).
 
-**"The map couldn't load" in the dialog.** The style failed to load: check its URL, or that a JSON file in `static/` is valid style JSON. Editors can switch to another style, unless the default style is the broken one. Missing tiles alone don't cause this.
+**"The map couldn't load" in the dialog.** The style failed to load: check its URL, or that a JSON file in `static/` is valid style JSON. With several styles, editors can switch to another from the menu. Missing tiles alone don't cause this.
 
 **"Map preview unavailable".** A preview couldn't render; the console says why. Usually the style failed to load or the browser has WebGL turned off.
 
