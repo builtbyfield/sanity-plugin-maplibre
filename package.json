@@ -1,7 +1,7 @@
 {
   "name": "sanity-plugin-maplibre",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "packageManager": "pnpm@10.34.7",
   "description": "Keyless, open-source map inputs for Sanity Studio, built on MapLibre, OpenFreeMap and OpenStreetMap geocoding. A drop-in replacement for @sanity/google-maps-input.",
   "author": {

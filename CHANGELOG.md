@@ -1,5 +1,11 @@
 # sanity-plugin-maplibre
 
+## 0.1.2
+
+### Patch Changes
+
+- [#2](https://github.com/builtbyfield/sanity-plugin-maplibre/pull/2) [`ce97dc4`](https://github.com/builtbyfield/sanity-plugin-maplibre/commit/ce97dc48e4d9e6cd389f6aef542fdaba83891e9d) Thanks [@essejmclean](https://github.com/essejmclean)! - Fix unstyled buttons and dialogs on Sanity Studio v5. The plugin's components use `@sanity/ui` v4, whose stylesheet Sanity 5 doesn't load; the plugin now imports it.
+
 ## 0.1.1
 
 ### Patch Changes
