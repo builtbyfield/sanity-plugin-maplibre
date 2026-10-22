@@ -1,5 +1,11 @@
 # sanity-plugin-maplibre
 
+## 0.1.1
+
+### Patch Changes
+
+- [`3cd76e4`](https://github.com/builtbyfield/sanity-plugin-maplibre/commit/3cd76e43e08ba86f5a297357d4574a06c6deee41) Thanks [@essejmclean](https://github.com/essejmclean)! - When the default map style fails to load, the map dialog now shows the style menu alongside the error, so editors can switch to a working style. Before, the menu only appeared once a style had loaded.
+
 ## 0.1.0
 
 ### Minor Changes
