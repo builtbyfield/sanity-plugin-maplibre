@@ -3,4 +3,5 @@ trustPolicy: no-downgrade
 shellEmulator: true
 
 packages:
+  - .
   - dev
