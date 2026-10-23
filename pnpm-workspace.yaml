@@ -5,3 +5,12 @@ shellEmulator: true
 packages:
   - .
   - dev
+
+# Patched versions of vulnerable dev-only transitive dependencies, kept within each major.
+# Drop an entry once the package that pulls it in ships the fix itself.
+overrides:
+  js-yaml@3: ^3.15.2
+  katex@0.16: ^0.18.2
+  smol-toml@1: ^1.9.1
+  tinypool@2: ^2.1.2
+  uuid@10: ^11.1.1
